@@ -10,5 +10,5 @@ pool:
   vmImage: 'windows-latest'
 
 steps:
-- script: .\build.ps1 -Target Coverage
+- powershell: .\build.ps1 -Target Coverage
   displayName: 'Run Tests & Coverage'
