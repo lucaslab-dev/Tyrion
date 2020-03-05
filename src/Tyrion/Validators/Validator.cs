@@ -10,7 +10,7 @@ namespace Tyrion.Validators
 
         public new IResult<T> Validate(T instance)
         {
-            if (instance == null)
+            if (object.Equals(instance, default(T)))
             {
                 return Result<T>.Failed(Message ?? string.Empty);
             }

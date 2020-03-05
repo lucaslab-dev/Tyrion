@@ -9,17 +9,17 @@ Tyrion is an implementation of mediator pattern for .Net Core
 
 ## 👨🏽‍💻 Installing
 
-	- Package Manager
+-	Package Manager
 ```bash
 Install-Package Tyrion
 ```
 
-	- .Net CLI
+-	.Net CLI
 ```bash
 dotnet add package Tyrion
 ```
 
-	- Pakat CLI
+-	Pakat CLI
 ```bash
 paket add Tyrion 
 ```
