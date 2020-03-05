@@ -1,3 +1,5 @@
+[![Build Status](https://albertomonteiro.visualstudio.com/Tyrion.CQRS/_apis/build/status/AlbertoMonteiro.Tyrion.CQRS?branchName=master)](https://albertomonteiro.visualstudio.com/Tyrion.CQRS/_build/latest?definitionId=1&branchName=master)
+
 # ⚔️ Tyrion.CQRS
 
 Tyrion is an implementation of mediator pattern for .Net Core
