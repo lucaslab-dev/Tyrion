@@ -27,13 +27,17 @@ namespace Tyrion
                     var validator = instanceValidator.Data.Validate<TRequest>(request);
 
                     if (!validator.IsValid)
+                    {
                         return Result<TResult>.Failed(validator.ToString());
+                    }
                 }
 
                 var service = _serviceProvider.GetRequiredService(typeof(IRequestHandler<TRequest, TResult>)) as IRequestHandler<TRequest, TResult>;
 
                 if (service == null)
+                {
                     return Result<TResult>.Failed($"{typeof(TRequest)?.Name} not found or not implemented!");
+                }
 
                 return await service.Execute(request);
             }
@@ -50,13 +54,15 @@ namespace Tyrion
                 var service = _serviceProvider.GetRequiredService(typeof(IRequestHandler<TRequest>)) as IRequestHandler<TRequest>;
 
                 if (service == null)
+                {
                     throw new ArgumentException($"{typeof(TRequest)?.Name} not found or not implemented!");
+                }
 
                 await service.Execute(request);
             }
             catch (Exception ex)
             {
-                await Task.FromException(ex);
+                await Task.FromException(ex).ConfigureAwait(false);
             }
         }
 
@@ -73,7 +79,9 @@ namespace Tyrion
                 );
 
             if (requestValidatorType == null)
+            {
                 return Result<Validator<TRequest>>.Failed($"{requestType.Name} doesn't have rules implemented.");
+            }
 
             var instance = Activator.CreateInstance(requestValidatorType) as Validator<TRequest>;
 

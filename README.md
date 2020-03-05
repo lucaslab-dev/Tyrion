@@ -2,29 +2,31 @@
 
 [![Build Status](https://lucasluizssdev.visualstudio.com/Tyrion.CQRS/_apis/build/status/lucasluizss.Tyrion.CQRS?branchName=master)](https://lucasluizssdev.visualstudio.com/Tyrion.CQRS/_build/latest?definitionId=1&branchName=master)
 
+[![codecov](https://codecov.io/gh/lucasluizss/Tyrion.CQRS/branch/master/graph/badge.svg)](https://codecov.io/gh/lucasluizss/Tyrion.CQRS)
+
 Tyrion is an implementation of mediator pattern for .Net Core
 { KISS }
 
 ## 👨🏽‍💻 Installing
 
-- Package Manager
+	- Package Manager
 ```bash
 Install-Package Tyrion
 ```
 
-- .Net CLI
+	- .Net CLI
 ```bash
 dotnet add package Tyrion
 ```
 
-- Pakat CLI
+	- Pakat CLI
 ```bash
 paket add Tyrion 
 ```
 
 ## 🧾 Usage
 
-In your Startup.cs, add Tyrion in your service with some typeof class, for identify the currently assembly project. (Could be any class in your project) like this:
+In your Startup.cs, add Tyrion on your service with some typeof class, for identify the currently assembly project. (Could be any class in your project) like this:
 
 ```csharp
 
@@ -51,10 +53,10 @@ Samples of validation requests bellow (this is an optional implementation):
 ```csharp
 public sealed class StuffCommandValidator : Validator<StuffCommand>
 {
-    public StuffCommandValidator()
-    {
-        RuleFor(x => x.MyProperty).NotEmpty();
-    }
+	public StuffCommandValidator()
+	{
+		RuleFor(x => x.MyProperty).NotEmpty();
+	}
 }
 ```
 
@@ -63,26 +65,26 @@ Samples of Handlers bellow:
 ```csharp
 public sealed class StuffCommandHandler : IRequestHandler<StuffCommand, Stuff>
 {
-    public async Task<IResult<Stuff>> Execute(StuffCommand request)
-    {
-        return await Task.FromResult(Result<Stuff>.Successed(new Stuff()));
-    }
+	public async Task<IResult<Stuff>> Execute(StuffCommand request)
+	{
+		return await Task.FromResult(Result<Stuff>.Successed(new Stuff()));
+	}
 }
 
 public sealed class StuffQueryHandler : IRequestHandler<StuffQuery, Stuff>
 {
-    public async Task<IResult<Stuff>> Execute(StuffQuery request)
-    {
-        return await Task.FromResult(Result<Stuff>.Successed(new Stuff()));
-    }
+	public async Task<IResult<Stuff>> Execute(StuffQuery request)
+	{
+		return await Task.FromResult(Result<Stuff>.Successed(new Stuff()));
+	}
 }
 
 public sealed class StuffNotificationHandler : IRequestHandler<StuffNotification, Stuff>
 {
-    public async Task<IResult<Stuff>> Execute(StuffNotification request)
-    {
-        return await Task.FromResult(Result<Stuff>.Successed(new Stuff()));
-    }
+	public async Task<IResult<Stuff>> Execute(StuffNotification request)
+	{
+		return await Task.FromResult(Result<Stuff>.Successed(new Stuff()));
+	}
 }
 ```
 
@@ -98,30 +100,30 @@ Something like this:
 
 ```csharp
 public sealed class TestCommandHandler : IRequestHandler<TestCommand, Test>,
-                                         IRequestHandler<Test1Command, Test1>,
-                                         IRequestHandler<Test2Command, Test2>,
-                                         IRequestHandler<Test3Command>,
+										 IRequestHandler<Test1Command, Test1>,
+										 IRequestHandler<Test2Command, Test2>,
+										 IRequestHandler<Test3Command>,
 {
-    public async Task<IResult<Test>> Execute(TestCommand request)
-    {
-        return await Task.FromResult(Result<Test>.Successed(new Test()));
-    }
+	public async Task<IResult<Test>> Execute(TestCommand request)
+	{
+		return await Task.FromResult(Result<Test>.Successed(new Test()));
+	}
 
-    public async Task<IResult<Test1>> Execute(Test1Command command)
-    {
-        return await Task.FromResult(Result<Test1>.Successed(new Test1()));
-    }
+	public async Task<IResult<Test1>> Execute(Test1Command command)
+	{
+		return await Task.FromResult(Result<Test1>.Successed(new Test1()));
+	}
 
-    public async Task<IResult<Test2>> Execute(Test2Command request)
-    {
-        return await Task.FromResult(Result<Test2>.Successed(new Test2()));
-    }
+	public async Task<IResult<Test2>> Execute(Test2Command request)
+	{
+		return await Task.FromResult(Result<Test2>.Successed(new Test2()));
+	}
 
-    // This sample doesn't need a return
-    public async Task Execute(Test3Command request)
-    {
-        await Task.CompletedTask;
-    }
+	// This sample doesn't need a return
+	public async Task Execute(Test3Command request)
+	{
+		await Task.CompletedTask;
+	}
 }
 ```
 

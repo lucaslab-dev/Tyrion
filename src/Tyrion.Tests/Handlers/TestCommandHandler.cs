@@ -13,22 +13,22 @@ namespace Tyrion.Tests.Handlers
     {
         public async Task<IResult<Test>> Execute(TestCommand request)
         {
-            return await Task.FromResult(Result<Test>.Successed(new Test()));
+            return await Task.FromResult(Result<Test>.Successed(new Test())).ConfigureAwait(false);
         }
 
         public async Task<IResult<Test1>> Execute(Test1Command command)
         {
-            return await Task.FromResult(Result<Test1>.Successed(new Test1()));
+            return await Task.FromResult(Result<Test1>.Successed(new Test1())).ConfigureAwait(false);
         }
 
         public async Task<IResult<Test2>> Execute(Test2Command request)
         {
-            return await Task.FromResult(Result<Test2>.Successed(new Test2()));
+            return await Task.FromResult(Result<Test2>.Successed(new Test2())).ConfigureAwait(false);
         }
 
         public async Task Execute(Test3Command request)
         {
-            await Task.CompletedTask;
+            await Task.CompletedTask.ConfigureAwait(false);
         }
     }
 }

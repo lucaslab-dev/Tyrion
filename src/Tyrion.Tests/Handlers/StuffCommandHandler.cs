@@ -9,7 +9,7 @@ namespace Tyrion.Tests.Handlers
     {
         public async Task<IResult<Stuff>> Execute(StuffCommand command)
         {
-            return await Task.FromResult(Result<Stuff>.Successed(new Stuff()));
+            return await Task.FromResult(Result<Stuff>.Successed(new Stuff())).ConfigureAwait(false);
         }
     }
 }
