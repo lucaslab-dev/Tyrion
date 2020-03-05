@@ -1,5 +1,6 @@
 # ⚔️ Tyrion.CQRS
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a2592f3d2693409cb997ea957c2c4a5f)](https://app.codacy.com/manual/lucasluizss/Tyrion.CQRS?utm_source=github.com&utm_medium=referral&utm_content=lucasluizss/Tyrion.CQRS&utm_campaign=Badge_Grade_Dashboard)
 [![Build Status](https://lucasluizssdev.visualstudio.com/Tyrion.CQRS/_apis/build/status/lucasluizss.Tyrion.CQRS?branchName=master)](https://lucasluizssdev.visualstudio.com/Tyrion.CQRS/_build/latest?definitionId=1&branchName=master)
 
 [![codecov](https://codecov.io/gh/lucasluizss/Tyrion.CQRS/branch/master/graph/badge.svg)](https://codecov.io/gh/lucasluizss/Tyrion.CQRS)
