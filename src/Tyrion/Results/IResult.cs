@@ -7,7 +7,7 @@
         public string Message { get; }
     }
 
-    public interface IResult<T>
+    public interface IResult<out T>
     {
         public bool Success { get; }
 

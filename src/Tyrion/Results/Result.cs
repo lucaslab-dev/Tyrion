@@ -11,10 +11,13 @@
         }
 
         public bool Success { get; }
+
         public string Message { get; }
 
         public static IResult Successed() => new Result();
+
         public static IResult Successed(string message) => new Result(message, true);
+
         public static IResult Failed(string message) => new Result(message);
     }
 
@@ -35,11 +38,15 @@
         }
 
         public bool Success { get; }
+
         public string Message { get; }
+
         public T Data { get; }
 
         public static IResult<T> Successed() => new Result<T>();
+
         public static IResult<T> Successed(T data) => new Result<T>(data);
+
         public static IResult<T> Failed(string message) => new Result<T>(message);
     }
 }

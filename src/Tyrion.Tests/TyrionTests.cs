@@ -13,9 +13,9 @@ namespace Tyrion.Tests
 
         public TyrionTests()
         {
-            var _services = new ServiceCollection();
-            _services.AddTyrion(typeof(Stuff));
-            _tyrion = new Tyrion(_services.BuildServiceProvider());
+            var services = new ServiceCollection();
+            services.AddTyrion(typeof(Stuff));
+            _tyrion = new Tyrion(services.BuildServiceProvider());
         }
 
         [TestMethod]

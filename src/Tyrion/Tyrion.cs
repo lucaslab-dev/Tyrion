@@ -11,10 +11,11 @@ namespace Tyrion
 {
     public sealed class Tyrion : ITyrion
     {
-        private static string ValidatorTypeName => typeof(Validator<>).Name;
         private readonly IServiceProvider _serviceProvider;
 
         public Tyrion(IServiceProvider serviceProvider) => _serviceProvider = serviceProvider;
+
+        private static string ValidatorTypeName => typeof(Validator<>).Name;
 
         public async Task<IResult<TResult>> Execute<TRequest, TResult>(TRequest request) where TRequest : IRequest
         {
@@ -32,11 +33,9 @@ namespace Tyrion
                     }
                 }
 
-                var service = _serviceProvider.GetRequiredService(typeof(IRequestHandler<TRequest, TResult>)) as IRequestHandler<TRequest, TResult>;
-
-                if (service == null)
+                if (!(_serviceProvider.GetRequiredService(typeof(IRequestHandler<TRequest, TResult>)) is IRequestHandler<TRequest, TResult> service))
                 {
-                    return Result<TResult>.Failed($"{typeof(TRequest)?.Name} not found or not implemented!");
+                    return Result<TResult>.Failed($"{typeof(TRequest).Name} not found or not implemented!");
                 }
 
                 return await service.Execute(request);
@@ -67,10 +66,13 @@ namespace Tyrion
 
                 if (Equals(service, default(IRequestHandler<TRequest>)))
                 {
-                    await Task.FromResult(Result.Failed($"{typeof(TRequest)?.Name} not found or not implemented!")).ConfigureAwait(false);
+                    await Task.FromResult(Result.Failed($"{typeof(TRequest).Name} not found or not implemented!")).ConfigureAwait(false);
                 }
 
-                await service.Execute(request).ConfigureAwait(false);
+                if (service != null)
+                {
+                    await service.Execute(request).ConfigureAwait(false);
+                }
             }
             catch (Exception ex)
             {
@@ -84,11 +86,7 @@ namespace Tyrion
 
             var requestValidatorType = requestType.Assembly
                 .GetTypes()
-                .FirstOrDefault(type =>
-                    type.IsClass &&
-                    type.Name.Contains(requestType.Name) &&
-                    type.BaseType.Name.Equals(ValidatorTypeName)
-                );
+                .FirstOrDefault(type => type.BaseType != null && type.IsClass && type.Name.Contains(requestType.Name) && type.BaseType.Name.Equals(ValidatorTypeName));
 
             if (requestValidatorType == null)
             {
