@@ -1,25 +1,22 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Authors>Lucas Silva</Authors>
-    <Description>Tyrion is a mediator implementation for .Net Core</Description>
-    <RepositoryUrl>https://github.com/lucasluizss/Tyrion.CQRS</RepositoryUrl>
-    <PackageTags>mediator;cqrs;dotnet</PackageTags>
-    <PackageId>Tyrion</PackageId>
-    <Product>Tyrion.CQRS</Product>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <Version>1.1.0</Version>
-    <PackageReleaseNotes>Adding validation for IRequests when they have validation rules</PackageReleaseNotes>
-    <PackageProjectUrl>https://github.com/lucasluizss/Tyrion.CQRS</PackageProjectUrl>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <None Include="..\LICENSE" Pack="true" PackagePath="" />
-    <PackageReference Include="FluentValidation" Version="8.6.2" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.1" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.2" />
-  </ItemGroup>
-
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Authors>Lucas Silva</Authors>
+        <Description>Tyrion is a mediator implementation for .Net Core</Description>
+        <RepositoryUrl>https://github.com/lucasluizss/Tyrion.CQRS</RepositoryUrl>
+        <PackageTags>mediator;cqrs;dotnet</PackageTags>
+        <PackageId>Tyrion</PackageId>
+        <Product>Tyrion.CQRS</Product>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <Version>1.1.0</Version>
+        <PackageReleaseNotes>Adding validation for IRequests when they have validation rules</PackageReleaseNotes>
+        <PackageProjectUrl>https://github.com/lucasluizss/Tyrion.CQRS</PackageProjectUrl>
+    </PropertyGroup>
+    <ItemGroup>
+        <None Include="..\LICENSE" Pack="true" PackagePath="" />
+        <PackageReference Include="FluentValidation" Version="8.6.2" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.2" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.2" />
+    </ItemGroup>
 </Project>
