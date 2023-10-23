@@ -27,4 +27,7 @@ jobs:
         run: dotnet pack --configuration Release
 
       - name: Publish
-        run: dotnet nuget push "Tyrion/bin/Release/*.nupkg" -k ${{ secrets.NUGET_TOKEN }} -s https://api.nuget.org/v3/index.json
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+        run: |
+          find . -name "*.nupkg" -exec dotnet nuget push {} -k $NUGET_API_KEY -s https://api.nuget.org/v3/index.json \;
