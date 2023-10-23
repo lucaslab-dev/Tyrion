@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Authors>Lucas Silva</Authors>
+        <Company>lucaslab.dev</Company>
+        <Description>Tyrion is a mediator implementation for dotnet</Description>
+        <RepositoryUrl>https://github.com/lucasluizss/Tyrion.CQRS</RepositoryUrl>
+        <PackageTags>mediator;cqrs;dotnet;events;notification</PackageTags>
+        <PackageId>Tyrion</PackageId>
+        <Product>Tyrion.CQRS</Product>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <Version>1.1.5</Version>
+        <PackageReleaseNotes>
+            In this new release, we add some resources, including:
+            - Compatibility with dotnet standard applications
+        </PackageReleaseNotes>
+        <PackageProjectUrl>https://github.com/lucasluizss/Tyrion.CQRS</PackageProjectUrl>
+        <PackageIcon>tyrion.jpg</PackageIcon>
+        <PackageIconUrl />
+    </PropertyGroup>
+    <ItemGroup>
+        <None Include="..\..\.github\images\tyrion.jpg">
+          <Pack>True</Pack>
+          <PackagePath></PackagePath>
+        </None>
+        <None Include="..\LICENSE" Pack="true" PackagePath="" />
+        <PackageReference Include="FluentValidation" Version="11.8.0" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+    </ItemGroup>
+</Project>
