@@ -17,11 +17,11 @@
             - Compatibility with dotnet standard applications
         </PackageReleaseNotes>
         <PackageProjectUrl>https://github.com/lucasluizss/Tyrion.CQRS</PackageProjectUrl>
-        <PackageIcon>tyrion.jpg</PackageIcon>
+        <PackageIcon>tyrion.png</PackageIcon>
         <PackageIconUrl />
     </PropertyGroup>
     <ItemGroup>
-        <None Include="..\..\.github\images\tyrion.jpg">
+        <None Include="..\..\.github\images\tyrion.png">
           <Pack>True</Pack>
           <PackagePath></PackagePath>
         </None>
